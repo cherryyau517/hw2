@@ -77,6 +77,7 @@ Role.destroy_all
 # Generate models and tables, according to the domain model
 # TODO!
 
+# Done
 
 # id INTEGER PRIMARY KEY AUTOINCREMENT,
 # title TEXT,
@@ -87,6 +88,155 @@ Role.destroy_all
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+# -- Christopher Nolan 
+values = {name: "Christopher Nolan"}
+person = Person.new(values)
+person.save
+
+christopher = Person.where({name:"Christopher Nolan"})[0]
+
+# -- Movies
+
+values = {title:"Batman Begins", year_released:2005, rated:"PG-13", person_id:christopher.id}
+movie = Movie.new(values)
+movie.save 
+
+begins = Movie.where({title:"Batman Begins"})[0]
+
+values = {title:"The Dark Knight", year_released:2008, rated:"PG-13", person_id:christopher.id}
+movie = Movie.new(values)
+movie.save
+
+knight = Movie.where({title:"The Dark Knight"})[0]
+
+values = {title:"The Dark Knight Rises", year_released:2012, rated:"PG-13", person_id:christopher.id}
+movie = Movie.new(values)
+movie.save
+
+rises = Movie.where({title:"The Dark Knight Rises"})[0]
+
+# -- Batman Begins
+
+values = {name: "Christian Bale"}
+person = Person.new(values)
+person.save
+christianb = Person.where({name:"Christian Bale"}) [0]
+
+values = {name: "Michael Caine"}
+person = Person.new(values)
+person.save
+michaelc = Person.where({name:"Michael Caine"}) [0]
+
+values = {name: "Liam Neeson"}
+person = Person.new(values)
+person.save
+liamn = Person.where({name:"Liam Neeson"}) [0]
+
+values = {name: "Katie Holmes"}
+person = Person.new(values)
+person.save
+katieh = Person.where({name:"Katie Holmes"}) [0]
+
+values = {name: "Gary Oldman"}
+person = Person.new(values)
+person.save
+garyo = Person.where({name:"Gary Oldman"}) [0]
+
+
+values = {movie_id:begins.id, person_id:christianb.id,character_name:"Bruce Wayne"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:begins.id, person_id:michaelc.id,character_name:"Alfred"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:begins.id, person_id:liamn.id,character_name:"Ra's Al Ghul"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:begins.id, person_id:katieh.id,character_name:"Rachel Dawes"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:begins.id, person_id:garyo.id,character_name:"Commissioner Gordon"}
+role = Role.new(values)
+role.save
+
+# -- The Dark Knight
+
+values = {name: "Heath Ledger"}
+person = Person.new(values)
+person.save
+heathl = Person.where({name:"Heath Ledger"}) [0]
+
+
+values = {name: "Aaron Eckhart"}
+person = Person.new(values)
+person.save
+aarone = Person.where({name:"Aaron Eckhart"}) [0]
+
+values = {name: "Maggie Gyllenhaal"}
+person = Person.new(values)
+person.save
+maggieg = Person.where({name:"Maggie Gyllenhaal"}) [0]
+
+values = {movie_id:knight.id, person_id:christianb.id,character_name:"Bruce Wayne"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:knight.id, person_id:heathl.id,character_name:"Joker"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:knight.id, person_id:aarone.id,character_name:"Harvey Dent"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:knight.id, person_id:michaelc.id,character_name:"Alfred"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:knight.id, person_id:maggieg.id,character_name:"Rachel Dawes"}
+role = Role.new(values)
+role.save
+
+# -- The Dark Knight Rises
+values = {name: "Tom Hardy"}
+person = Person.new(values)
+person.save
+tomh = Person.where({name:"Tom Hardy"}) [0]
+
+values = {name: "Joseph Gordon-Levitt"}
+person = Person.new(values)
+person.save
+josephg = Person.where({name:"Joseph Gordon-Levitt"}) [0]
+
+values = {name: "Anne Hathaway"}
+person = Person.new(values)
+person.save
+anneh = Person.where({name:"Anne Hathaway"}) [0]
+
+values = {movie_id:rises.id, person_id:christianb.id,character_name:"Bruce Wayne"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:rises.id, person_id:garyo.id,character_name:"Commissioner Gordon"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:rises.id, person_id:tomh.id,character_name:"Bane"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:rises.id, person_id:josephg.id,character_name:"John Blake"}
+role = Role.new(values)
+role.save
+
+values = {movie_id:rises.id, person_id:anneh.id,character_name:"Selina Kyle"}
+role = Role.new(values)
+role.save
 
 # Prints a header for the movies output
 puts "Movies"
